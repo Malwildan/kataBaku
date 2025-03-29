@@ -83,7 +83,7 @@ function answer(e) {
         selectedButton.classList.add('correct-answer');
         if (sound) correctSound.play();
     } else {
-        answerText.textContent = `Yang benar adalah "${correctAnswer}"`;
+        answerText.textContent = `Yang benar adalah "${correctAnswer}"!`;
         answerText.classList.remove('correct');
         answerText.classList.add('wrong');
         wrongCount++;
