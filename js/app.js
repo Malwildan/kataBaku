@@ -47,6 +47,10 @@ function SetUp() {
 }
 
 function answer(e) {
+    // Disable both buttons to prevent multiple clicks
+    btn1.disabled = true;
+    btn2.disabled = true;
+
     const selectedButton = e.currentTarget;
     const correctAnswer = baku[lastIndex];
     const correctButton = btn1.textContent === baku[lastIndex] ? btn1 : btn2;
@@ -72,12 +76,19 @@ function answer(e) {
     }
 
     setTimeout(() => {
+        // Remove highlight classes after animation
         selectedButton.classList.remove('wrong-answer', 'correct-answer');
         correctButton.classList.remove('correct-answer');
         wrongButton.classList.remove('wrong-answer');
+
+        // Re-enable buttons
+        btn1.disabled = false;
+        btn2.disabled = false;
+
         SetUp();
-    }, 1000);
+    }, 1000); // Adjust timing if needed
 }
+
 
 
 SetUp();
