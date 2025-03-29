@@ -129,12 +129,30 @@ p {
 }
 
 .stat {
-  
+  border-radius: var(--radius);
   padding: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
+
+.correct-count, .wrong-count {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: var(--radius);
+}
+
+.correct-count {
+  background-color: var(--correctColor);
+}
+
+.wrong-count {
+  background-color: var(--wrongColor);
+}
+
 
 .stat p {
   color: var(--buttonTextColor);
@@ -143,7 +161,7 @@ p {
   letter-spacing: 0.125rem;
 }
 
-.stat .correct-count {
+/*.stat .correct-count {
   font-size: 2rem;
   background-color: var(--correctColor);
 }
@@ -151,7 +169,7 @@ p {
 .stat .wrong-count {
   background-color: var(--wrongColor);
   font-size: 2rem;
-}
+}*/
 
 /* sound */
 .btn-sound {
