@@ -193,3 +193,19 @@ p {
     color: white;
 }
 
+.stat.correct-box {
+  background-color: var(--correctColor); /* Green for correct answers */
+}
+
+.stat.wrong-box {
+  background-color: var(--wrongColor); /* Red for wrong answers */
+}
+
+.stat p {
+  color: white; /* Make the text white for better contrast */
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+
