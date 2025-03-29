@@ -160,6 +160,14 @@ p {
   letter-spacing: 0.125rem;
 }
 
+.answer-text.correct-answer {
+    margin-top: 0.5rem;
+}
+
+.answer-text.wrong-answer {
+    margin-top: 0.5rem;
+}
+
 /*.stat .correct-count {
   font-size: 2rem;
   background-color: var(--correctColor);
