@@ -9,7 +9,7 @@
 :root {
   --headingColor: #161819;
   --textColor: #161819;
-  --buttonColor: #eebbc3;
+  --buttonColor: #088c63;
   --buttonTextColor: #232946;
   --backgroundColor: #ffffff;
   --correctColor: #10b982;
@@ -154,7 +154,7 @@ p {
 }
 
 .stat p {
-  color: white !important;
+  color: #161819 !important;
   font-weight: bold;
   font-size: 1rem;
   letter-spacing: 0.125rem;
