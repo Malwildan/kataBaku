@@ -12,8 +12,8 @@
   --buttonColor: #eebbc3;
   --buttonTextColor: #232946;
   --backgroundColor: #232946;
-  --correctColor: #00ebc7;
-  --wrongColor: #ff5470;
+  --correctColor: #10b982;
+  --wrongColor: #f43f5e;
   --font: 'Nunito', sans-serif;
   --transition: all 0.3s linear;
   --radius: 2rem;
@@ -184,12 +184,12 @@ p {
 }
 
 .correct-answer {
-    background-color: #10b982;
+    background-color: var(--correctColor);
     color: white;
 }
 
 .wrong-answer {
-    background-color: #f43f5e;
+    background-color: var(--wrongColor);
     color: white;
 }
 
