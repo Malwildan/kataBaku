@@ -5,7 +5,7 @@ const btn1 = document.querySelector('.btn-1');
 const btn2 = document.querySelector('.btn-2');
 
 const correctStat = document.querySelector('.correct-count');
-const wrongStat = document.querySelector('.wrong-count                                        
+const wrongStat = document.querySelector('.wrong-count');                                        
 
 btn1.addEventListener('click', answer);
 btn2.addEventListener('click', answer);
@@ -48,6 +48,7 @@ function SetUp() {
 
 function answer(e) {
     const selectedButton = e.currentTarget;
+    const correctAnswer = baku[lastIndex];
     const correctButton = btn1.textContent === baku[lastIndex] ? btn1 : btn2;
     const wrongButton = btn1.textContent !== baku[lastIndex] ? btn1 : btn2;
 
@@ -60,7 +61,7 @@ function answer(e) {
         selectedButton.classList.add('correct-answer');
         if (sound) correctSound.play();
     } else {
-        answerText.textContent = `Jawaban Anda, "${selectedButton.textContent}", salah!`;
+        answerText.textContent = `Yang benar adalah "${correctAnswer}"`;
         answerText.classList.remove('correct');
         answerText.classList.add('wrong');
         wrongCount += 1;
