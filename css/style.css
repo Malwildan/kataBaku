@@ -207,11 +207,29 @@ p {
 .correct-answer {
     background-color: var(--correctColor);
     color: white;
+    transition: background-color 0.5s ease-in-out, transform 0.2s;
+    transform: scale(1);
 }
 
 .wrong-answer {
     background-color: var(--wrongColor);
     color: white;
+    transition: background-color 0.5s ease-in-out, transform 0.2s;
+    transform: scale(1);
 }
 
+.selected {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
