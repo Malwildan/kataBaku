@@ -47,30 +47,36 @@ function SetUp() {
 }
 
 function answer(e) {
-    if (e.currentTarget.textContent === baku[lastIndex]) {
-        const answerString = `Jawaban Anda, "${e.currentTarget.textContent}", benar!`;
-        answerText.textContent = answerString;
+    const selectedButton = e.currentTarget;
+    const correctButton = btn1.textContent === baku[lastIndex] ? btn1 : btn2;
+    const wrongButton = btn1.textContent !== baku[lastIndex] ? btn1 : btn2;
+
+    if (selectedButton.textContent === baku[lastIndex]) {
+        answerText.textContent = `Jawaban Anda, "${selectedButton.textContent}", benar!`;
         answerText.classList.remove('wrong');
         answerText.classList.add('correct');
         correctCount += 1;
         correctStat.textContent = correctCount;
-        if (sound) {
-            correctSound.play();
-        }
-        SetUp();
+        selectedButton.classList.add('correct-answer');
+        if (sound) correctSound.play();
     } else {
-        console.log('clicked on wrong answer!');
-        const answerString = `Jawaban Anda, "${e.currentTarget.textContent}", salah!`;
-        answerText.textContent = answerString;
+        answerText.textContent = `Jawaban Anda, "${selectedButton.textContent}", salah!`;
         answerText.classList.remove('correct');
         answerText.classList.add('wrong');
         wrongCount += 1;
         wrongStat.textContent = wrongCount;
-        if (sound) {
-            wrongSound.play();
-        }
-        SetUp();
+        selectedButton.classList.add('wrong-answer');
+        correctButton.classList.add('correct-answer');
+        if (sound) wrongSound.play();
     }
+
+    setTimeout(() => {
+        selectedButton.classList.remove('wrong-answer', 'correct-answer');
+        correctButton.classList.remove('correct-answer');
+        wrongButton.classList.remove('wrong-answer');
+        SetUp();
+    }, 1000);
 }
+
 
 SetUp();
