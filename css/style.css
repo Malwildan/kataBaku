@@ -207,13 +207,13 @@ p {
 .correct-answer {
     background-color: var(--correctColor);
     color: white;
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .wrong-answer {
     background-color: var(--wrongColor);
     color: white;
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 }
 
 /*.fade-in {
