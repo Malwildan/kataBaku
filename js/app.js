@@ -104,7 +104,7 @@ function answer(e) {
         btn2.disabled = false;
 
         SetUp();
-    }, 800);
+    }, 500);
 }
 
 btn1.addEventListener('click', answer);
