@@ -153,13 +153,12 @@ p {
   background-color: var(--wrongColor);
 }
 
-
-.stat p {
+/*.stat p {
   color: var(--buttonTextColor);
   font-weight: bold;
   font-size: 1rem;
   letter-spacing: 0.125rem;
-}
+}*/
 
 /*.stat .correct-count {
   font-size: 2rem;
