@@ -89,10 +89,10 @@ p {
   box-shadow: var(--shadow-md);
 }
 
-.btn:hover {
+/*.btn:hover {
   transform: scale(1);
   box-shadow: var(--shadow-xl);
-}
+}*/
 
 @media screen and (min-width: 576px) {
   .btn {
@@ -184,9 +184,9 @@ p {
   transition: var(--transition);
 }
 
-.btn-sound:hover {
+/*.btn-sound:hover {
   transform: scale(1.2);
-}
+}*/
 
 .sound-container {
   display: flex;
