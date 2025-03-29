@@ -129,7 +129,7 @@ p {
 }
 
 .stat {
-  background-color: var(--buttonColor);
+  
   padding: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
@@ -145,9 +145,11 @@ p {
 
 .stat .correct-count {
   font-size: 2rem;
+  background-color: var(--correctColor);
 }
 
 .stat .wrong-count {
+  background-color: var(--wrongColor);
   font-size: 2rem;
 }
 
