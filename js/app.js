@@ -86,7 +86,7 @@ function answer(e) {
         btn2.disabled = false;
 
         SetUp();
-    }, 700); // Adjust timing if needed
+    }, 500); // Adjust timing if needed
 }
 
 
