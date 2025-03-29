@@ -12,8 +12,8 @@ btn2.addEventListener('click', answer);
 
 const answerText = document.querySelector('.answer-text');
 
-let lastIndex = -1;
-let index = -1;
+let shuffledIndices = [];
+let currentIdx = 0;
 
 let correctCount = 0;
 let wrongCount = 0;
@@ -31,33 +31,40 @@ soundButton.addEventListener("click", function () {
   sound = !sound;
 });
 
-function SetUp() {
-    while (index === lastIndex) {
-        index = Math.floor(Math.random() * baku.length);
+
+function shuffleArray() {
+    shuffledIndices = Array.from({ length: baku.length }, (_, i) => i);
+    for (let i = shuffledIndices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledIndices[i], shuffledIndices[j]] = [shuffledIndices[j], shuffledIndices[i]];
     }
-    const correctButton = Math.floor(Math.random() * 2);
-    if (correctButton === 0) {
-        btn1.textContent = baku[index];
-        btn2.textContent = tidakBaku[index];
-    } else {
-        btn1.textContent = tidakBaku[index];
-        btn2.textContent = baku[index];
-    }
-    lastIndex = index;
+    currentIdx = 0;
 }
 
+
+function SetUp() {
+    if (currentIdx >= shuffledIndices.length) {
+        shuffleArray(); // Reshuffle when all items are used
+    }
+
+    let index = shuffledIndices[currentIdx++];
+    const correctButton = Math.random() < 0.5 ? btn1 : btn2;
+
+    correctButton.textContent = baku[index];
+    (correctButton === btn1 ? btn2 : btn1).textContent = tidakBaku[index];
+}
+
+// Answer Function
 function answer(e) {
-    // Disable both buttons to prevent multiple clicks
     btn1.disabled = true;
     btn2.disabled = true;
 
     const selectedButton = e.currentTarget;
-    const correctAnswer = baku[lastIndex];
-    const correctButton = btn1.textContent === baku[lastIndex] ? btn1 : btn2;
-    const wrongButton = btn1.textContent !== baku[lastIndex] ? btn1 : btn2;
+    const correctAnswer = baku[shuffledIndices[currentIdx - 1]];
+    const correctButton = btn1.textContent === correctAnswer ? btn1 : btn2;
 
-    if (selectedButton.textContent === baku[lastIndex]) {
-        answerText.textContent = `Jawaban Anda, "${selectedButton.textContent}", benar!`;
+    if (selectedButton.textContent === correctAnswer) {
+        answerText.textContent = `Jawaban "${selectedButton.textContent}", benar!`;
         answerText.classList.remove('wrong');
         answerText.classList.add('correct');
         correctCount += 1;
@@ -76,19 +83,14 @@ function answer(e) {
     }
 
     setTimeout(() => {
-        // Remove highlight classes after animation
         selectedButton.classList.remove('wrong-answer', 'correct-answer');
         correctButton.classList.remove('correct-answer');
-        wrongButton.classList.remove('wrong-answer');
-
-        // Re-enable buttons
         btn1.disabled = false;
         btn2.disabled = false;
 
         SetUp();
-    }, 500); // Adjust timing if needed
+    }, 500);
 }
 
-
-
+shuffleArray();
 SetUp();
