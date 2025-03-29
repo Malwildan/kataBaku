@@ -218,7 +218,7 @@ p {
 
 .fade-in {
     opacity: 0;
-    animation: fadeIn 0.3s forwards;
+    animation: fadeIn 0.2s forwards;
 }
 
 @keyframes fadeIn {
