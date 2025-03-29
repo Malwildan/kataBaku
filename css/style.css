@@ -158,14 +158,8 @@ p {
   font-weight: bold;
   font-size: 1rem;
   letter-spacing: 0.125rem;
-}
-
-.answer-text.correct-answer {
-    margin-top: 0.5rem;
-}
-
-.answer-text.wrong-answer {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 /*.stat .correct-count {
