@@ -31,9 +31,8 @@ async function loadData() {
         
         const data = await response.json();
         
-        // Convert JSON object to arrays
-        baku = Object.values(data);   // Correct words
-        tidakBaku = Object.keys(data); // Incorrect words
+        baku = Object.values(data);
+        tidakBaku = Object.keys(data);
         
         shuffleArray();
         SetUp();
@@ -61,6 +60,11 @@ function SetUp() {
 
     correctButton.textContent = baku[index];
     (correctButton === btn1 ? btn2 : btn1).textContent = tidakBaku[index];
+
+    answerText.classList.remove("fade-in");
+    requestAnimationFrame(() => {
+        answerText.classList.add("fade-in");
+    });
 }
 
 function answer(e) {
@@ -70,6 +74,8 @@ function answer(e) {
     const selectedButton = e.currentTarget;
     const correctAnswer = baku[shuffledIndices[currentIdx - 1]];
     const correctButton = btn1.textContent === correctAnswer ? btn1 : btn2;
+
+    selectedButton.classList.add("selected");
 
     if (selectedButton.textContent === correctAnswer) {
         answerText.textContent = `Jawaban "${selectedButton.textContent}", benar!`;
@@ -91,15 +97,17 @@ function answer(e) {
     }
 
     setTimeout(() => {
-        selectedButton.classList.remove('wrong-answer', 'correct-answer');
-        correctButton.classList.remove('correct-answer');
+        selectedButton.classList.remove("selected");
+        selectedButton.classList.remove("wrong-answer", "correct-answer");
+        correctButton.classList.remove("correct-answer");
         btn1.disabled = false;
         btn2.disabled = false;
+
         SetUp();
-    }, 500);
+    }, 800);
 }
 
 btn1.addEventListener('click', answer);
 btn2.addEventListener('click', answer);
 
-loadData(); // Load JSON and start game
+loadData();
