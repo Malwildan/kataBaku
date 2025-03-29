@@ -102,7 +102,7 @@ p {
 
 .footer {
   height: var(--footerHeight);
-  background-color: #111;
+  background-color: var(--buttonColor);
   display: grid;
   place-items: center;
 }
