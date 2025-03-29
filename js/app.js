@@ -50,7 +50,6 @@ function answer(e) {
     const selectedButton = e.currentTarget;
     const correctButton = btn1.textContent === baku[lastIndex] ? btn1 : btn2;
     const wrongButton = btn1.textContent !== baku[lastIndex] ? btn1 : btn2;
-    const correctWord = baku[lastIndex]; 
 
     if (selectedButton.textContent === baku[lastIndex]) {
         answerText.textContent = `Jawaban Anda, "${selectedButton.textContent}", benar!`;
@@ -61,7 +60,7 @@ function answer(e) {
         selectedButton.classList.add('correct-answer');
         if (sound) correctSound.play();
     } else {
-        answerText.textContent = `Yang benar adalah "${correctWord}"`;
+        answerText.textContent = `Jawaban Anda, "${selectedButton.textContent}", salah!`;
         answerText.classList.remove('correct');
         answerText.classList.add('wrong');
         wrongCount += 1;
