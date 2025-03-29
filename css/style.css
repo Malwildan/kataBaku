@@ -7,11 +7,11 @@
 }
 
 :root {
-  --headingColor: #fffffe;
-  --textColor: #b7c1ec;
+  --headingColor: #161819;
+  --textColor: #161819;
   --buttonColor: #eebbc3;
   --buttonTextColor: #232946;
-  --backgroundColor: #232946;
+  --backgroundColor: #ffffff;
   --correctColor: #10b982;
   --wrongColor: #f43f5e;
   --font: 'Nunito', sans-serif;
