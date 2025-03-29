@@ -193,19 +193,4 @@ p {
     color: white;
 }
 
-.stat.correct-box {
-  background-color: var(--correctColor) !important;
-}
-
-.stat.wrong-box {
-  background-color: var(--wrongColor) !important;
-}
-
-.stat p {
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
 
